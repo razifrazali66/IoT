@@ -1,0 +1,38 @@
+/*
+  Simple Blink Sketch for ESP8266 Onboard LED
+
+  This sketch blinks the onboard LED of an ESP8266 development board.
+  The LED_BUILTIN constant is typically defined to the correct GPIO pin
+  for the onboard LED (e.g., GPIO2 for NodeMCU, which is D4).
+
+  The onboard LED on many ESP8266 boards is active LOW,
+  meaning:
+  - LOW turns the LED ON
+  - HIGH turns the LED OFF
+*/
+
+// If LED_BUILTIN is not defined for your specific board variant,
+// you might need to define it yourself. For NodeMCU, it's usually D4 (GPIO2).
+// #ifndef LED_BUILTIN
+// #define LED_BUILTIN 2 // GPIO2 is D4 on NodeMCU
+// #endif
+
+void setup() {
+  // Initialize the digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  Serial.begin(115200); // Optional: for debug messages
+  Serial.println("ESP8266 Blink Sketch Started!");
+  Serial.print("Using LED_BUILTIN, which should be GPIO: ");
+  Serial.println(LED_BUILTIN); // Print the GPIO number LED_BUILTIN maps to
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, LOW);   // Turn the LED ON (assuming active LOW)
+  Serial.println("LED ON");        // Optional: print status to Serial Monitor
+  delay(1000);                      // Wait for a second
+
+  digitalWrite(LED_BUILTIN, HIGH);  // Turn the LED OFF (assuming active LOW)
+  Serial.println("LED OFF");       // Optional: print status to Serial Monitor
+  delay(1000);                      // Wait for another second
+}
