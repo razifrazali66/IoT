@@ -1,4 +1,4 @@
-#include<ESP8266WiFi> 
+#include<ESP8266WiFi.h> 
 
 const char* ssid = "Tenda"; //your WiFi Name
 const char* password = "12345678";  //Your Wifi Password
